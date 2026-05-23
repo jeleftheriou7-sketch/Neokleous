@@ -364,20 +364,23 @@
             line-height: 1.7;
         }
 
-       <!-- Video Section -->
-<section class="video-section">
-    <div class="video-container">
-        <div class="section-header">
-            <div class="section-tag" style="background: var(--secondary); color: var(--dark);">Δείτε</div>
-            <h2>Το Μήνυμά μου σε Εσάς</h2>
-            <p>Ακούστε απευθείας γιατί κατεβαίνω και για τι θα αγωνιστώ.</p>
-        </div>
-        <iframe width="100%" height="500"
-            src="https://www.youtube-nocookie.com/embed/_cwkWGrGN6s"
-            frameborder="0" allowfullscreen>
-        </iframe>
-    </div>
-</section>
+        /* Video Section */
+        .video-section {
+            background: white;
+            padding: 6rem 2rem;
+        }
+
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 500px;
+            border-radius: 8px;
+        }
+
         /* Contact Section */
         .contact-grid {
             display: grid;
@@ -484,6 +487,161 @@
             box-shadow: 0 5px 20px rgba(26,77,122,0.3);
         }
 
+        /* Articles Section */
+        .gn-articles {
+            background: #ffffff;
+            padding: 100px 7%;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gn-articles-header {
+            margin-bottom: 70px;
+        }
+
+        .gn-articles-header h1 {
+            font-size: 4rem;
+            color: #2b1d0e;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            font-weight: 700;
+        }
+
+        .gn-articles-header p {
+            max-width: 850px;
+            color: #7a6a58;
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+        .gn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 38px;
+        }
+
+        .gn-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            transition: 0.45s ease;
+            cursor: pointer;
+            border: 1px solid rgba(43, 29, 14, 0.08);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .gn-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+        }
+
+        .gn-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gn-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .gn-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .gn-category {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            background: rgba(43, 29, 14, 0.75);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .gn-content {
+            padding: 30px;
+        }
+
+        .gn-content h2 {
+            color: #2b1d0e;
+            font-size: 1.45rem;
+            line-height: 1.45;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .gn-content p {
+            color: #6e6255;
+            line-height: 1.9;
+            margin-bottom: 28px;
+            font-size: 0.97rem;
+        }
+
+        .gn-btn {
+            color: #8c6239;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .gn-btn:hover {
+            opacity: 0.7;
+        }
+
+        /* PDF Modal */
+        .gn-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999;
+            padding: 25px;
+        }
+
+        .gn-modal.active {
+            display: flex;
+        }
+
+        .gn-modal-content {
+            width: 96%;
+            max-width: 1350px;
+            height: 92vh;
+            background: white;
+            border-radius: 26px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gn-modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .gn-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 999;
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
@@ -493,7 +651,7 @@
         }
 
         footer p {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.95rem;
         }
 
@@ -525,6 +683,14 @@
             .section-header h2 {
                 font-size: 2.5rem;
             }
+
+            .gn-articles-header h1 {
+                font-size: 2.6rem;
+            }
+
+            .gn-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 640px) {
@@ -550,7 +716,7 @@
                 <div class="flag">Κερύνεια | Kyrenia</div>
                 <h1>Γρηγόρης Νεοκλέους</h1>
                 <p class="subtitle">Η Φωνή της Κερύνειας που Αρνείται να Σβήσει</p>
-                <p>Εκπροσωπώ κάθε εκτοπισμένη οικογένεια. Αγωνίζομαι για τα δικαιώματά μας. Στέκομαι γερά για όσου[...]
+                <p>Εκπροσωπώ κάθε εκτοπισμένη οικογένεια. Αγωνίζομαι για τα δικαιώματά μας. Στέκομαι γερά για όσα πιστεύω.</p>
                 <div class="cta-buttons">
                     <a href="#contact" class="btn btn-primary">Γίνε Μέρος της Κίνησης</a>
                     <a href="#about" class="btn btn-secondary">Μάθε Περισσότερα</a>
@@ -569,14 +735,14 @@
         <div class="section-header">
             <div class="section-tag">Ποιος Είμαι</div>
             <h2>Μια Ζωή Δεμένη με την Κερύνεια</h2>
-            <p>Όχι απλώς ένας υποψήφιος — μια φωνή που κουβαλά τη μνήμη, τον αγώνα και την ελπίδα της κοινότητάς μ[...]
+            <p>Όχι απλώς ένας υποψήφιος — μια φωνή που κουβαλά τη μνήμη, τον αγώνα και την ελπίδα της κοινότητάς μας.</p>
         </div>
         <div class="about-grid">
             <div class="about-text">
                 <h3>Κι αν δεν είμαστε εκεί, δεν έχουμε φύγει.</h3>
-                <p>Κατεβαίνω για την Κερύνεια γιατί η φωνή μας αξίζει να ακουστεί — όχι συμβολικά, αλλά ενεργά. Κάθ�[...]
-                <p>Δεν πρόκειται απλώς για πολιτική. Πρόκειται για ταυτότητα, μνήμη και το μέλλον που χτίζουμε για �[...]
-                <p>Η δέσμευσή μου είναι απλή: να αγωνίζομαι ακατάπαυστα για τα δικαιώματά μας, να κρατώ ζωντανή την [...]
+                <p>Κατεβαίνω για την Κερύνεια γιατί η φωνή μας αξίζει να ακουστεί — όχι συμβολικά, αλλά ενεργά.</p>
+                <p>Δεν πρόκειται απλώς για πολιτική. Πρόκειται για ταυτότητα, μνήμη και το μέλλον που χτίζουμε για τα παιδιά μας.</p>
+                <p>Η δέσμευσή μου είναι απλή: να αγωνίζομαι ακατάπαυστα για τα δικαιώματά μας, να κρατώ ζωντανή την ταυτότητά μας.</p>
             </div>
             <div class="about-stats">
                 <div class="stat-card">
@@ -592,498 +758,174 @@
     </section>
 
     <!-- Issues Section -->
-<section class="issues">
-    <div class="section-header">
-        <div class="section-tag">Για τι Αγωνίζομαι</div>
-        <h2>Οι Προτεραιότητές μας</h2>
-        <p>Σαφείς στόχοι. Ενεργή εκπροσώπηση. Πραγματικά αποτελέσματα.</p>
-    </div>
-    <div class="issues-grid">
-        <div class="issue-card">
-            <div class="icon">🏘️</div>
-            <h3>Δικαιώματα Εκτοπισμένων Οικογενειών</h3>
-            <p>Αγωνίζομαι για τα δικαιώματα και την αξιοπρέπεια κάθε οικογένειας που δεν μπορεί να επιστρέψει σπ[...]
-        </div>
-        <div class="issue-card">
-            <div class="icon">📜</div>
-            <h3>Δικαιώματα Ιδιοκτησίας</h3>
-            <p>Προστατεύω τα νομικά μας δικαιώματα στην περιουσία και διασφαλίζω ότι οι αξιώσεις μας δεν θα ξεχα�[...]
-        </div>
-        <div class="issue-card">
-            <div class="icon">🌱</div>
-            <h3>Ευκαιρίες για τη Νέα Γενιά</h3>
-            <p>Δημιουργώ προοπτικές για την επόμενη γενιά ώστε να παραμείνει συνδεδεμένη με την κληρονομιά της κ[...]
-        </div>
-    </div>
-</section>
-    
-<!-- ARTICLES / BLOG SECTION -->
-
-<section class="gn-articles">
-
-<style>
-
-.gn-articles{
-    background:#ffffff;
-    padding:100px 7%;
-    font-family:'Inter',sans-serif;
-}
-
-/* HEADER */
-
-.gn-articles-header{
-    margin-bottom:70px;
-}
-
-.gn-articles-header h1{
-    font-size:4rem;
-    color:#2b1d0e;
-    margin-bottom:20px;
-    letter-spacing:-2px;
-    font-weight:700;
-}
-
-.gn-articles-header p{
-    max-width:850px;
-    color:#7a6a58;
-    line-height:1.9;
-    font-size:1.05rem;
-}
-
-/* GRID */
-
-.gn-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-    gap:38px;
-}
-
-/* CARD */
-
-.gn-card{
-    background:white;
-    border-radius:28px;
-    overflow:hidden;
-    transition:0.45s ease;
-    cursor:pointer;
-    border:1px solid rgba(43,29,14,0.08);
-    box-shadow:0 8px 30px rgba(0,0,0,0.04);
-}
-
-.gn-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 30px 80px rgba(0,0,0,0.08);
-}
-
-/* IMAGE */
-
-.gn-image{
-    height:240px;
-    overflow:hidden;
-    position:relative;
-}
-
-.gn-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:0.6s;
-}
-
-.gn-card:hover img{
-    transform:scale(1.05);
-}
-
-/* CATEGORY */
-
-.gn-category{
-    position:absolute;
-    top:18px;
-    left:18px;
-    background:rgba(43,29,14,0.75);
-    color:white;
-    padding:8px 16px;
-    border-radius:40px;
-    font-size:0.78rem;
-    font-weight:600;
-    backdrop-filter:blur(10px);
-}
-
-/* CONTENT */
-
-.gn-content{
-    padding:30px;
-}
-
-.gn-content h2{
-    color:#2b1d0e;
-    font-size:1.45rem;
-    line-height:1.45;
-    margin-bottom:18px;
-    font-weight:700;
-}
-
-.gn-content p{
-    color:#6e6255;
-    line-height:1.9;
-    margin-bottom:28px;
-    font-size:0.97rem;
-}
-
-.gn-btn{
-    color:#8c6239;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.gn-btn:hover{
-    opacity:0.7;
-}
-
-/* PDF MODAL */
-
-.gn-modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.78);
-    backdrop-filter:blur(10px);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:999999;
-    padding:25px;
-}
-
-.gn-modal.active{
-    display:flex;
-}
-
-.gn-modal-content{
-    width:96%;
-    max-width:1350px;
-    height:92vh;
-    background:white;
-    border-radius:26px;
-    overflow:hidden;
-    position:relative;
-}
-
-.gn-modal iframe{
-    width:100%;
-    height:100%;
-    border:none;
-}
-
-.gn-close{
-    position:absolute;
-    top:18px;
-    right:18px;
-    width:48px;
-    height:48px;
-    border:none;
-    border-radius:50%;
-    background:rgba(0,0,0,0.7);
-    color:white;
-    font-size:1.2rem;
-    cursor:pointer;
-    z-index:999;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.gn-articles-header h1{
-    font-size:2.6rem;
-}
-
-.gn-grid{
-    grid-template-columns:1fr;
-}
-
-}
-
-</style>
-
-<!-- HEADER -->
-
-<div class="gn-articles-header">
-
-    <h1>Άρθρα & Παρεμβάσεις</h1>
-
-    <p>
-        Πολιτικές παρεμβάσεις, θέσεις και αναλύσεις για το Κυπριακό,
-        την κοινωνική δικαιοσύνη, τα ανθρώπινα δικαιώματα
-        και την Επαρχία Κερύνειας.
-    </p>
-
-</div>
-
-<!-- GRID -->
-
-<div class="gn-grid">
-
-    <!-- 1 -->
-
-    <div class="gn-card" onclick="openPDF('1Η Λύση πρέπει να περάσει από την Κερύνεια πρώτα.pdf')">
-
-        <div class="gn-image">
-            <img src="images/article1.jpg">
-            <div class="gn-category">Κυπριακό</div>
-        </div>
-
-        <div class="gn-content">
-
-            <h2>Η Λύση πρέπει να περάσει από την Κερύνεια πρώτα</h2>
-
-            <p>
-                Προτάσεις για μια δίκαιη και βιώσιμη λύση
-                με ουσιαστική συμμετοχή των Κερυνειωτών.
-            </p>
-
-            <a class="gn-btn">Άνοιγμα PDF →</a>
-
-        </div>
-
-    </div>
-
-    <!-- 2 -->
-
-    <div class="gn-card" onclick="openPDF('2Ο προσφυγικός κόσμος βιώνει κοινωνική ανισότητα και άδικη διαχείριση..pdf')">
-
-        <div class="gn-image">
-            <img src="images/article2.jpg">
-            <div class="gn-category">Κοινωνία</div>
-        </div>
-
-        <div class="gn-content">
-
-            <h2>Ο προσφυγικός κόσμος βιώνει κοινωνική ανισότητα</h2>
-
-            <p>
-                Μετά από 51 χρόνια κοινοβουλευτικού έργου,
-                οι εκτοπισμένοι συνεχίζουν να βιώνουν κοινωνική αδικία.
-            </p>
-
-            <a class="gn-btn">Άνοιγμα PDF →</a>
-
-        </div>
-
-    </div>
-
-    <!-- 3 -->
-
-    <div class="gn-card" onclick="openPDF('3ΑΠΑΙΤΗΣΟΥΜΕ, την μόνιμη και θεσμική εκπροσώπηση των Κερυνειωτών στην διαπραγ[...]
-
-        <div class="gn-image">
-            <img src="images/article3.jpg">
-            <div class="gn-category">Πολιτική</div>
-        </div>
-
-        <div class="gn-content">
-
-            <h2>Θεσμική εκπροσώπηση των Κερυνειωτών</h2>
-
-            <p>
-                Μόνιμη συμμετοχή των Κερυνειωτών
-                στη διαπραγματευτική διαδικασία λύσης.
-            </p>
-
-            <a class="gn-btn">Άνοιγμα PDF →</a>
-
-        </div>
-
-    </div>
-
-    <!-- 4 -->
-
-    <div class="gn-card" onclick="openPDF('4Αποζημιώσεις ΑΜΕΣΑ για την συνεχιζόμενη απώλεια χρήσης της περιουσίας.pdf')">
-
-        <div class="gn-image">
-            <img src="images/article4.jpg">
-            <div class="gn-category">Οικονομία</div>
-        </div>
-
-        <div class="gn-content">
-
-            <h2>Αποζημιώσεις για απώλεια χρήσης περιουσίας</h2>
-
-            <p>
-                Πρόταση οικονομικής στήριξης
-                για ιδιοκτήτες κατεχόμενων περιουσιών.
-            </p>
-
-            <a class="gn-btn">Άνοιγμα PDF →</a>
-
-        </div>
-
-    </div>
-
-    <!-- 5 -->
-
-    <div class="gn-card" onclick="openPDF('5Ο_Γρηγόριος Νεοκλέους - Βιογραφικό.pdf')">
-
-        <div class="gn-image">
-            <img src="images/article5.jpg">
-            <div class="gn-category">Βιογραφικό</div>
-        </div>
-
-        <div class="gn-content">
-
-            <h2>Ο Γρηγόριος Νεοκλέους</h2>
-
-            <p>
-                Βιογραφικό, διεθνής πορεία
-                και δημόσια επαγγελματική δράση.
-            </p>
-
-            <a class="gn-btn">Άνοιγμα PDF →</a>
-
-        </div>
-
-    </div>
-
-    <!-- 6 -->
-
-    <div class="gn-card" onclick="openPDF('6Επιστροφή εδαφών της Κερύνειας.pdf')">
-
-        <div class="gn-image">
-            <img src="images/article6.jpg">
-            <div class="gn-category">Εδαφικό</div>
-        </div>
-
-        <div class="gn-content">
-
-            <h2>Επιστροφή εδαφών της Κερύνειας</h2>
-
-            <p>
-                Ανάλυση στρατηγικών επιστροφής εδαφών
-                και γεωπολιτικής ισορροπίας.
-            </p>
-
-            <a class="gn-btn">Άνοιγμα PDF →</a>
-
-        </div>
-
-    </div>
-
-    <!-- 7 -->
-
-    <div class="gn-card" onclick="openPDF('7Ζούμε σε μια χώρα όπου η διαφθορά εκτέθηκε δημόσια.pdf')">
-
-        <div class="gn-image">
-            <img src="images/article7.jpg">
-            <div class="gn-category">Διαφάνεια</div>
-        </div>
-
-        <div class="gn-content">
-
-            <h2>Ζούμε σε μια χώρα όπου η διαφθορά εκτέθηκε δημόσια</h2>
-
-            <p>
-                Παρέμβαση για διαφθορά, κοινωνικές ανισότητες
-                και ανάγκη θεσμικής αλλαγής.
-            </p>
-
-            <a class="gn-btn">Άνοιγμα PDF →</a>
-
-        </div>
-
-    </div>
-
-    <!-- 8 -->
-
-    <div class="gn-card" onclick="openPDF('8Η Εκ Μητρογωνίας δικαίωμα.pdf')">
-
-        <div class="gn-image">
-            <img src="images/article8.jpg">
-            <div class="gn-category">Δικαιώματα</div>
-        </div>
-
-        <div class="gn-content">
-
-            <h2>Η Εκ Μητρογωνίας δικαίωμα</h2>
-
-            <p>
-                Παρέμβαση για τα δικαιώματα
-                της Κύπριας μητέρας.
-            </p>
-
-            <a class="gn-btn">Άνοιγμα PDF →</a>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- PDF POPUP -->
-
-<div class="gn-modal" id="pdfModal">
-
-    <div class="gn-modal-content">
-
-        <button class="gn-close" onclick="closePDF()">✕</button>
-
-        <iframe id="pdfFrame" src=""></iframe>
-
-    </div>
-
-</div>
-
-</section>
-    
-    <!-- Contact Section -->
-    <section id="contact">
+    <section class="issues">
         <div class="section-header">
-            <div class="section-tag">Επικοινωνία</div>
-            <h2>Ας Μιλήσουμε</h2>
-            <p>Έχεις ερώτηση ή θέλεις να συμμετάσχεις; Επικοινώνησε μαζί μας σήμερα.</p>
+            <div class="section-tag">Για τι Αγωνίζομαι</div>
+            <h2>Οι Προτεραιότητές μας</h2>
+            <p>Σαφείς στόχοι. Ενεργή εκπροσώπηση. Πραγματικά αποτελέσματα.</p>
         </div>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Είμαι Εδώ για Εσάς</h3>
-                <p>Η φωνή σας είναι σημαντική. Θέλω να ακούσω τις ιστορίες σας, τα ονειρά σας και τις ανησυχίες σας. Μαζί θα φτιάξουμε ένα καλύτερο μέλλον.</p>
-                <div class="social-links">
-                    <a href="https://facebook.com" class="social-link">
-                        f Facebook
-                    </a>
-                    <a href="https://twitter.com" class="social-link">
-                        𝕏 Twitter
-                    </a>
-                </div>
+        <div class="issues-grid">
+            <div class="issue-card">
+                <div class="icon">🏘️</div>
+                <h3>Δικαιώματα Εκτοπισμένων Οικογενειών</h3>
+                <p>Αγωνίζομαι για τα δικαιώματα και την αξιοπρέπεια κάθε οικογένειας που δεν μπορεί να επιστρέψει στην Κερύνεια.</p>
             </div>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label>Όνομα</label>
-                    <input type="text" placeholder="Το όνομά σου" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" placeholder="το@email.σου" required>
-                </div>
-                <div class="form-group">
-                    <label>Μήνυμα</label>
-                    <textarea placeholder="Γράψε το μήνυμά σου..." required></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Αποστολή</button>
-                </div>
-            </form>
+            <div class="issue-card">
+                <div class="icon">📜</div>
+                <h3>Δικαιώματα Ιδιοκτησίας</h3>
+                <p>Προστατεύω τα νομικά μας δικαιώματα στην περιουσία και διασφαλίζω ότι οι αξιώσεις μας δεν θα ξεχαστούν.</p>
+            </div>
+            <div class="issue-card">
+                <div class="icon">🌱</div>
+                <h3>Ευκαιρίες για τη Νέα Γενιά</h3>
+                <p>Δημιουργώ προοπτικές για την επόμενη γενιά ώστε να παραμείνει συνδεδεμένη με την κληρονομιά της Κερύνειας.</p>
+            </div>
         </div>
     </section>
 
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="video-container">
+            <div class="section-header">
+                <div class="section-tag" style="background: var(--secondary); color: var(--dark);">Δείτε</div>
+                <h2>Το Μήνυμά μου σε Εσάς</h2>
+                <p>Ακούστε απευθείας γιατί κατεβαίνω και για τι θα αγωνιστώ.</p>
+            </div>
+            <iframe width="100%" height="500"
+                src="https://www.youtube-nocookie.com/embed/_cwkWGrGN6s"
+                frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="gn-articles">
+        <div class="gn-articles-header">
+            <h1>Άρθρα & Παρεμβάσεις</h1>
+            <p>
+                Πολιτικές παρεμβάσεις, θέσεις και αναλύσεις για το Κυπριακό,
+                την κοινωνική δικαιοσύνη, τα ανθρώπινα δικαιώματα
+                και την Επαρχία Κερύνειας.
+            </p>
+        </div>
+
+        <div class="gn-grid">
+            <div class="gn-card" onclick="openPDF('1Η Λύση πρέπει να περάσει από την Κερύνεια πρώτα.pdf')">
+                <div class="gn-image">
+                    <img src="images/article1.jpg" alt="Article 1">
+                    <div class="gn-category">Κυπριακό</div>
+                </div>
+                <div class="gn-content">
+                    <h2>Η Λύση πρέπει να περάσει από την Κερύνεια πρώτα</h2>
+                    <p>Προτάσεις για μια δίκαιη και βιώσιμη λύση με ουσιαστική συμμετοχή των Κερυνειωτών.</p>
+                    <a class="gn-btn">Άνοιγμα PDF →</a>
+                </div>
+            </div>
+
+            <div class="gn-card" onclick="openPDF('2Ο προσφυγικός κόσμος βιώνει κοινωνική ανισότητα και άδικη διαχείριση.pdf')">
+                <div class="gn-image">
+                    <img src="images/article2.jpg" alt="Article 2">
+                    <div class="gn-category">Κοινωνία</div>
+                </div>
+                <div class="gn-content">
+                    <h2>Ο προσφυγικός κόσμος βιώνει κοινωνική ανισότητα</h2>
+                    <p>Μετά από 51 χρόνια κοινοβουλευτικού έργου, οι εκτοπισμένοι συνεχίζουν να βιώνουν κοινωνική αδικία.</p>
+                    <a class="gn-btn">Άνοιγμα PDF →</a>
+                </div>
+            </div>
+
+            <div class="gn-card" onclick="openPDF('3ΑΠΑΙΤΗΣΟΥΜΕ την μόνιμη και θεσμική εκπροσώπηση των Κερυνειωτών στην διαπραγμάτευση.pdf')">
+                <div class="gn-image">
+                    <img src="images/article3.jpg" alt="Article 3">
+                    <div class="gn-category">Πολιτική</div>
+                </div>
+                <div class="gn-content">
+                    <h2>Θεσμική εκπροσώπηση των Κερυνειωτών</h2>
+                    <p>Μόνιμη συμμετοχή των Κερυνειωτών στη διαπραγματευτική διαδικασία λύσης.</p>
+                    <a class="gn-btn">Άνοιγμα PDF →</a>
+                </div>
+            </div>
+
+            <div class="gn-card" onclick="openPDF('4Αποζημιώσεις ΑΜΕΣΑ για την συνεχιζόμενη απώλεια χρήσης της περιουσίας.pdf')">
+                <div class="gn-image">
+                    <img src="images/article4.jpg" alt="Article 4">
+                    <div class="gn-category">Οικονομία</div>
+                </div>
+                <div class="gn-content">
+                    <h2>Αποζημιώσεις για απώλεια χρήσης περιουσίας</h2>
+                    <p>Πρόταση οικονομικής στήριξης για ιδιοκτήτες κατεχόμενων περιουσιών.</p>
+                    <a class="gn-btn">Άνοιγμα PDF →</a>
+                </div>
+            </div>
+
+            <div class="gn-card" onclick="openPDF('5Ο Γρηγόριος Νεοκλέους - Βιογραφικό.pdf')">
+                <div class="gn-image">
+                    <img src="images/article5.jpg" alt="Article 5">
+                    <div class="gn-category">Βιογραφικό</div>
+                </div>
+                <div class="gn-content">
+                    <h2>Ο Γρηγόριος Νεοκλέους</h2>
+                    <p>Βιογραφικό, διεθνής πορεία και δημόσια επαγγελματική δράση.</p>
+                    <a class="gn-btn">Άνοιγμα PDF →</a>
+                </div>
+            </div>
+
+            <div class="gn-card" onclick="openPDF('6Επιστροφή εδαφών της Κερύνειας.pdf')">
+                <div class="gn-image">
+                    <img src="images/article6.jpg" alt="Article 6">
+                    <div class="gn-category">Εδαφικό</div>
+                </div>
+                <div class="gn-content">
+                    <h2>Επιστροφή εδαφών της Κερύνειας</h2>
+                    <p>Ανάλυση στρατηγικών επιστροφής εδαφών και γεωπολιτικής ισορροπίας.</p>
+                    <a class="gn-btn">Άνοιγμα PDF →</a>
+                </div>
+            </div>
+
+            <div class="gn-card" onclick="openPDF('7Ζούμε σε μια χώρα όπου η διαφθορά εκτέθηκε δημόσια.pdf')">
+                <div class="gn-image">
+                    <img src="images/article7.jpg" alt="Article 7">
+                    <div class="gn-category">Διαφάνεια</div>
+                </div>
+                <div class="gn-content">
+                    <h2>Ζούμε σε μια χώρα όπου η διαφθορά εκτέθηκε δημόσια</h2>
+                    <p>Παρέμβαση για διαφθορά, κοινωνικές ανισότητες και ανάγκη θεσμικής αλλαγής.</p>
+                    <a class="gn-btn">Άνοιγμα PDF →</a>
+                </div>
+            </div>
+
+            <div class="gn-card" onclick="openPDF('8Η Εκ Μητρογωνίας δικαίωμα.pdf')">
+                <div class="gn-image">
+                    <img src="images/article8.jpg" alt="Article 8">
+                    <div class="gn-category">Δικαιώματα</div>
+                </div>
+                <div class="gn-content">
+                    <h2>Η Εκ Μητρογωνίας δικαίωμα</h2>
+                    <p>Ανάλυση και προστασία των δικαιωμάτων που ισχύουν δια του νόμου της φύσης.</p>
+                    <a class="gn-btn">Άνοιγμα PDF →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PDF Modal -->
+    <div class="gn-modal" id="pdfModal">
+        <div class="gn-modal-content">
+            <iframe id="pdfFrame"></iframe>
+            <button class="gn-close" onclick="closePDF()">✕</button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Γρηγόρης Νεοκλέους. Όλα τα δικαιώματα διατηρούνται. | Η φωνή της Κερύνειας</p>
+        <p>&copy; 2024 Γρηγόρης Νεοκλέους. Όλα τα δικαιώματα διατηρούνται.</p>
     </footer>
 
     <script>
         function openPDF(filename) {
             const modal = document.getElementById('pdfModal');
-            const frame = document.getElementById('pdfFrame');
-            frame.src = filename;
+            const pdfFrame = document.getElementById('pdfFrame');
+            pdfFrame.src = 'pdfs/' + filename;
             modal.classList.add('active');
         }
 
@@ -1093,9 +935,10 @@
             document.getElementById('pdfFrame').src = '';
         }
 
+        // Close modal when clicking outside
         window.onclick = function(event) {
             const modal = document.getElementById('pdfModal');
-            if (event.target == modal) {
+            if (event.target === modal) {
                 closePDF();
             }
         }
