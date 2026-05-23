@@ -658,7 +658,7 @@
     </div>
 </section>
 
-    <!-- Video Section -->
+   <!-- Video Section -->
 <section class="video-section">
     <div class="video-container">
         <div class="section-header">
@@ -666,7 +666,7 @@
             <h2>Το Μήνυμά μου σε Εσάς</h2>
             <p>Ακούστε απευθείας γιατί κατεβαίνω και για τι θα αγωνιστώ.</p>
         </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; border: 3px dashed rgba(255,255,255,0.3); padding: 2rem; background: rgba(0,0,0,0.3);">
             <iframe width="100%" height="400"
                 src="https://www.youtube-nocookie.com/embed/x-VfRlLGdnk"
                 frameborder="0" allowfullscreen>
@@ -678,6 +678,17 @@
         </div>
     </div>
 </section>
+
+<style>
+@media (max-width: 768px) {
+    .video-section div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+    .video-section iframe {
+        height: 250px !important;
+    }
+}
+</style>
    
     <!-- Contact Section -->
     <section id="contact">
