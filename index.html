@@ -617,122 +617,137 @@
     </div>
 </section>
     
-<!-- ARTICLES SECTION -->
+<!-- ARTICLES / BLOG SECTION -->
 
-<section class="articles-section">
+<section class="gn-articles">
 
 <style>
 
-.articles-section{
-    background:#0b0f14;
-    padding:90px 7%;
+.gn-articles{
+    background:#f5f1e8;
+    padding:100px 7%;
     font-family:'Inter',sans-serif;
 }
 
-.articles-header{
-    margin-bottom:60px;
+/* HEADER */
+
+.gn-articles-header{
+    margin-bottom:70px;
 }
 
-.articles-header h1{
-    color:white;
-    font-size:3.5rem;
+.gn-articles-header h1{
+    font-size:4rem;
+    color:#2b1d0e;
     margin-bottom:20px;
     letter-spacing:-2px;
+    font-weight:700;
 }
 
-.articles-header p{
-    color:#94a3b8;
+.gn-articles-header p{
     max-width:850px;
+    color:#7a6a58;
     line-height:1.9;
     font-size:1.05rem;
 }
 
-.articles-grid{
+/* GRID */
+
+.gn-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-    gap:35px;
+    gap:38px;
 }
 
-.article-card{
-    background:#111827;
+/* CARD */
+
+.gn-card{
+    background:white;
     border-radius:28px;
     overflow:hidden;
     transition:0.45s ease;
     cursor:pointer;
-    border:1px solid rgba(255,255,255,0.05);
+    border:1px solid rgba(43,29,14,0.08);
+    box-shadow:0 8px 30px rgba(0,0,0,0.04);
 }
 
-.article-card:hover{
+.gn-card:hover{
     transform:translateY(-10px);
-    box-shadow:0 25px 70px rgba(0,0,0,0.45);
+    box-shadow:0 30px 80px rgba(0,0,0,0.08);
 }
 
-.article-image{
+/* IMAGE */
+
+.gn-image{
     height:240px;
     overflow:hidden;
     position:relative;
 }
 
-.article-image img{
+.gn-image img{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:0.5s;
+    transition:0.6s;
 }
 
-.article-card:hover img{
-    transform:scale(1.06);
+.gn-card:hover img{
+    transform:scale(1.05);
 }
 
-.article-category{
+/* CATEGORY */
+
+.gn-category{
     position:absolute;
     top:18px;
     left:18px;
-    background:rgba(0,0,0,0.55);
-    backdrop-filter:blur(10px);
+    background:rgba(43,29,14,0.75);
     color:white;
-    padding:8px 15px;
+    padding:8px 16px;
     border-radius:40px;
-    font-size:0.8rem;
+    font-size:0.78rem;
     font-weight:600;
+    backdrop-filter:blur(10px);
 }
 
-.article-content{
+/* CONTENT */
+
+.gn-content{
     padding:30px;
 }
 
-.article-content h2{
-    color:white;
+.gn-content h2{
+    color:#2b1d0e;
     font-size:1.45rem;
     line-height:1.45;
     margin-bottom:18px;
+    font-weight:700;
 }
 
-.article-content p{
-    color:#94a3b8;
+.gn-content p{
+    color:#6e6255;
     line-height:1.9;
     margin-bottom:28px;
     font-size:0.97rem;
 }
 
-.article-btn{
-    color:#60a5fa;
-    font-weight:600;
+.gn-btn{
+    color:#8c6239;
     text-decoration:none;
+    font-weight:600;
     transition:0.3s;
 }
 
-.article-btn:hover{
+.gn-btn:hover{
     opacity:0.7;
 }
 
 /* PDF MODAL */
 
-.pdf-modal{
+.gn-modal{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.86);
-    backdrop-filter:blur(8px);
+    background:rgba(0,0,0,0.78);
+    backdrop-filter:blur(10px);
     display:none;
     justify-content:center;
     align-items:center;
@@ -740,32 +755,32 @@
     padding:25px;
 }
 
-.pdf-modal.active{
+.gn-modal.active{
     display:flex;
 }
 
-.pdf-content{
-    width:95%;
-    max-width:1300px;
+.gn-modal-content{
+    width:96%;
+    max-width:1350px;
     height:92vh;
     background:white;
-    border-radius:24px;
+    border-radius:26px;
     overflow:hidden;
     position:relative;
 }
 
-.pdf-content iframe{
+.gn-modal iframe{
     width:100%;
     height:100%;
     border:none;
 }
 
-.close-pdf{
+.gn-close{
     position:absolute;
-    top:15px;
-    right:15px;
-    width:46px;
-    height:46px;
+    top:18px;
+    right:18px;
+    width:48px;
+    height:48px;
     border:none;
     border-radius:50%;
     background:rgba(0,0,0,0.7);
@@ -775,160 +790,170 @@
     z-index:999;
 }
 
+/* MOBILE */
+
 @media(max-width:768px){
 
-.articles-header h1{
-    font-size:2.4rem;
+.gn-articles-header h1{
+    font-size:2.6rem;
+}
+
+.gn-grid{
+    grid-template-columns:1fr;
 }
 
 }
 
 </style>
 
-<div class="articles-header">
+<!-- HEADER -->
+
+<div class="gn-articles-header">
 
     <h1>Άρθρα & Παρεμβάσεις</h1>
 
     <p>
-        Πολιτικές παρεμβάσεις, αναλύσεις και θέσεις για το Κυπριακό,
+        Πολιτικές παρεμβάσεις, θέσεις και αναλύσεις για το Κυπριακό,
         την κοινωνική δικαιοσύνη, τα ανθρώπινα δικαιώματα
         και την Επαρχία Κερύνειας.
     </p>
 
 </div>
 
-<div class="articles-grid">
+<!-- GRID -->
 
-    <!-- ARTICLE 1 -->
+<div class="gn-grid">
 
-    <div class="article-card" onclick="openPDF('pdfs/1.pdf')">
+    <!-- 1 -->
 
-        <div class="article-image">
+    <div class="gn-card" onclick="openPDF('1Η Λύση πρέπει να περάσει από την Κερύνεια πρώτα.pdf')">
+
+        <div class="gn-image">
             <img src="images/article1.jpg">
-            <div class="article-category">Κυπριακό</div>
+            <div class="gn-category">Κυπριακό</div>
         </div>
 
-        <div class="article-content">
+        <div class="gn-content">
 
             <h2>Η Λύση πρέπει να περάσει από την Κερύνεια πρώτα</h2>
 
             <p>
-                Προτάσεις και στρατηγικές για μια βιώσιμη και δίκαιη λύση
-                του Κυπριακού προβλήματος.
+                Προτάσεις για μια δίκαιη και βιώσιμη λύση
+                με ουσιαστική συμμετοχή των Κερυνειωτών.
             </p>
 
-            <a class="article-btn">Άνοιγμα PDF →</a>
+            <a class="gn-btn">Άνοιγμα PDF →</a>
 
         </div>
 
     </div>
 
-    <!-- ARTICLE 2 -->
+    <!-- 2 -->
 
-    <div class="article-card" onclick="openPDF('pdfs/2.pdf')">
+    <div class="gn-card" onclick="openPDF('2Ο προσφυγικός κόσμος βιώνει κοινωνική ανισότητα και άδικη διαχείριση..pdf')">
 
-        <div class="article-image">
+        <div class="gn-image">
             <img src="images/article2.jpg">
-            <div class="article-category">Κοινωνία</div>
+            <div class="gn-category">Κοινωνία</div>
         </div>
 
-        <div class="article-content">
+        <div class="gn-content">
 
             <h2>Ο προσφυγικός κόσμος βιώνει κοινωνική ανισότητα</h2>
 
             <p>
-                Μετά από δεκαετίες πολιτικής διαχείρισης,
-                οι εκτοπισμένοι συνεχίζουν να βιώνουν ανισότητες.
+                Μετά από 51 χρόνια κοινοβουλευτικού έργου,
+                οι εκτοπισμένοι συνεχίζουν να βιώνουν κοινωνική αδικία.
             </p>
 
-            <a class="article-btn">Άνοιγμα PDF →</a>
+            <a class="gn-btn">Άνοιγμα PDF →</a>
 
         </div>
 
     </div>
 
-    <!-- ARTICLE 3 -->
+    <!-- 3 -->
 
-    <div class="article-card" onclick="openPDF('pdfs/3.pdf')">
+    <div class="gn-card" onclick="openPDF('3ΑΠΑΙΤΗΣΟΥΜΕ, την μόνιμη και θεσμική εκπροσώπηση των Κερυνειωτών στην διαπραγματευτική ομάδα λύσεως του Κυπριακού..pdf')">
 
-        <div class="article-image">
+        <div class="gn-image">
             <img src="images/article3.jpg">
-            <div class="article-category">Πολιτική</div>
+            <div class="gn-category">Πολιτική</div>
         </div>
 
-        <div class="article-content">
+        <div class="gn-content">
 
             <h2>Θεσμική εκπροσώπηση των Κερυνειωτών</h2>
 
             <p>
                 Μόνιμη συμμετοχή των Κερυνειωτών
-                στη διαπραγματευτική διαδικασία.
+                στη διαπραγματευτική διαδικασία λύσης.
             </p>
 
-            <a class="article-btn">Άνοιγμα PDF →</a>
+            <a class="gn-btn">Άνοιγμα PDF →</a>
 
         </div>
 
     </div>
 
-    <!-- ARTICLE 4 -->
+    <!-- 4 -->
 
-    <div class="article-card" onclick="openPDF('pdfs/4.pdf')">
+    <div class="gn-card" onclick="openPDF('4Αποζημιώσεις ΑΜΕΣΑ για την συνεχιζόμενη απώλεια χρήσης της περιουσίας.pdf')">
 
-        <div class="article-image">
+        <div class="gn-image">
             <img src="images/article4.jpg">
-            <div class="article-category">Οικονομία</div>
+            <div class="gn-category">Οικονομία</div>
         </div>
 
-        <div class="article-content">
+        <div class="gn-content">
 
             <h2>Αποζημιώσεις για απώλεια χρήσης περιουσίας</h2>
 
             <p>
-                Πρόταση οικονομικής στήριξης για ιδιοκτήτες
-                κατεχόμενων περιουσιών.
+                Πρόταση οικονομικής στήριξης
+                για ιδιοκτήτες κατεχόμενων περιουσιών.
             </p>
 
-            <a class="article-btn">Άνοιγμα PDF →</a>
+            <a class="gn-btn">Άνοιγμα PDF →</a>
 
         </div>
 
     </div>
 
-    <!-- ARTICLE 5 -->
+    <!-- 5 -->
 
-    <div class="article-card" onclick="openPDF('pdfs/5.pdf')">
+    <div class="gn-card" onclick="openPDF('5Ο_Γρηγόριος Νεοκλέους - Βιογραφικό.pdf')">
 
-        <div class="article-image">
+        <div class="gn-image">
             <img src="images/article5.jpg">
-            <div class="article-category">Βιογραφικό</div>
+            <div class="gn-category">Βιογραφικό</div>
         </div>
 
-        <div class="article-content">
+        <div class="gn-content">
 
             <h2>Ο Γρηγόριος Νεοκλέους</h2>
 
             <p>
-                Βιογραφικό, διεθνής πορεία,
-                επαγγελματική και πολιτική δράση.
+                Βιογραφικό, διεθνής πορεία
+                και δημόσια επαγγελματική δράση.
             </p>
 
-            <a class="article-btn">Άνοιγμα PDF →</a>
+            <a class="gn-btn">Άνοιγμα PDF →</a>
 
         </div>
 
     </div>
 
-    <!-- ARTICLE 6 -->
+    <!-- 6 -->
 
-    <div class="article-card" onclick="openPDF('pdfs/6.pdf')">
+    <div class="gn-card" onclick="openPDF('6Επιστροφή εδαφών της Κερύνειας.pdf')">
 
-        <div class="article-image">
+        <div class="gn-image">
             <img src="images/article6.jpg">
-            <div class="article-category">Εδαφικό</div>
+            <div class="gn-category">Εδαφικό</div>
         </div>
 
-        <div class="article-content">
+        <div class="gn-content">
 
             <h2>Επιστροφή εδαφών της Κερύνειας</h2>
 
@@ -937,55 +962,55 @@
                 και γεωπολιτικής ισορροπίας.
             </p>
 
-            <a class="article-btn">Άνοιγμα PDF →</a>
+            <a class="gn-btn">Άνοιγμα PDF →</a>
 
         </div>
 
     </div>
 
-    <!-- ARTICLE 7 -->
+    <!-- 7 -->
 
-    <div class="article-card" onclick="openPDF('pdfs/7.pdf')">
+    <div class="gn-card" onclick="openPDF('7Ζούμε σε μια χώρα όπου η διαφθορά εκτέθηκε δημόσια.pdf')">
 
-        <div class="article-image">
+        <div class="gn-image">
             <img src="images/article7.jpg">
-            <div class="article-category">Διαφάνεια</div>
+            <div class="gn-category">Διαφάνεια</div>
         </div>
 
-        <div class="article-content">
+        <div class="gn-content">
 
             <h2>Ζούμε σε μια χώρα όπου η διαφθορά εκτέθηκε δημόσια</h2>
 
             <p>
-                Παρέμβαση για διαφθορά, ανισότητες
-                και θεσμικές αλλαγές.
+                Παρέμβαση για διαφθορά, κοινωνικές ανισότητες
+                και ανάγκη θεσμικής αλλαγής.
             </p>
 
-            <a class="article-btn">Άνοιγμα PDF →</a>
+            <a class="gn-btn">Άνοιγμα PDF →</a>
 
         </div>
 
     </div>
 
-    <!-- ARTICLE 8 -->
+    <!-- 8 -->
 
-    <div class="article-card" onclick="openPDF('pdfs/8.pdf')">
+    <div class="gn-card" onclick="openPDF('8Η Εκ Μητρογωνίας δικαίωμα.pdf')">
 
-        <div class="article-image">
+        <div class="gn-image">
             <img src="images/article8.jpg">
-            <div class="article-category">Δικαιώματα</div>
+            <div class="gn-category">Δικαιώματα</div>
         </div>
 
-        <div class="article-content">
+        <div class="gn-content">
 
             <h2>Η Εκ Μητρογονίας αναγνώριση δικαιωμάτων</h2>
 
             <p>
                 Παρέμβαση για τα δικαιώματα
-                της Κύπριας μητέρας.
+                της Κύπριας μητέρας και των οικογενειών.
             </p>
 
-            <a class="article-btn">Άνοιγμα PDF →</a>
+            <a class="gn-btn">Άνοιγμα PDF →</a>
 
         </div>
 
@@ -993,13 +1018,13 @@
 
 </div>
 
-<!-- PDF POPUP -->
+<!-- PDF MODAL -->
 
-<div class="pdf-modal" id="pdfModal">
+<div class="gn-modal" id="pdfModal">
 
-    <div class="pdf-content">
+    <div class="gn-modal-content">
 
-        <button class="close-pdf" onclick="closePDF()">✕</button>
+        <button class="gn-close" onclick="closePDF()">✕</button>
 
         <iframe id="pdfViewer"></iframe>
 
@@ -1011,21 +1036,21 @@
 
 function openPDF(pdfFile){
 
-    document.getElementById("pdfViewer").src = pdfFile;
-    document.getElementById("pdfModal").classList.add("active");
+    document.getElementById('pdfViewer').src = pdfFile;
+    document.getElementById('pdfModal').classList.add('active');
 
 }
 
 function closePDF(){
 
-    document.getElementById("pdfModal").classList.remove("active");
-    document.getElementById("pdfViewer").src = "";
+    document.getElementById('pdfModal').classList.remove('active');
+    document.getElementById('pdfViewer').src = '';
 
 }
 
-window.addEventListener("click", function(e){
+window.addEventListener('click', function(e){
 
-    const modal = document.getElementById("pdfModal");
+    const modal = document.getElementById('pdfModal');
 
     if(e.target === modal){
 
@@ -1038,7 +1063,6 @@ window.addEventListener("click", function(e){
 </script>
 
 </section>
-
     <!-- Video Section -->
 <section class="video-section" style="border: 4px solid #1a4d7a; box-shadow: 0 0 30px rgba(26,77,122,0.5);">
     <div class="video-container">
