@@ -617,45 +617,426 @@
     </div>
 </section>
     
-<!-- Document Section -->
-<section style="padding: 2rem 0;">
-    <div class="section-header">
-        <div class="section-tag">Έγγραφο</div>
-        <h2>Διαβάστε το Πρόγραμμά μας</h2>
-    </div>
-    <div style="text-align: center; margin-top: 2rem;">
-        <div style="display: inline-block; cursor: pointer; transition: all 0.3s ease;" onclick="document.getElementById('pdfModal').style.display='flex';" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-            <img src="image3.jpg" 
-                 alt="Προβολή Εγγράφου" 
-                 style="max-width: 300px; border: 4px solid #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-radius: 8px; display: block;">
-            <div style="margin-top: 1rem; text-align: center;">
-                <p style="font-size: 16px; font-weight: 600; color: #d4af37; margin: 0; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                    <span>📄</span> Κάντε κλικ για να δείτε το έγγραφο
-                </p>
-            </div>
+<!-- ARTICLES SECTION -->
+
+<section class="articles-section">
+
+<style>
+
+.articles-section{
+    background:#0b0f14;
+    padding:90px 7%;
+    font-family:'Inter',sans-serif;
+}
+
+.articles-header{
+    margin-bottom:60px;
+}
+
+.articles-header h1{
+    color:white;
+    font-size:3.5rem;
+    margin-bottom:20px;
+    letter-spacing:-2px;
+}
+
+.articles-header p{
+    color:#94a3b8;
+    max-width:850px;
+    line-height:1.9;
+    font-size:1.05rem;
+}
+
+.articles-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:35px;
+}
+
+.article-card{
+    background:#111827;
+    border-radius:28px;
+    overflow:hidden;
+    transition:0.45s ease;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.article-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 25px 70px rgba(0,0,0,0.45);
+}
+
+.article-image{
+    height:240px;
+    overflow:hidden;
+    position:relative;
+}
+
+.article-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.article-card:hover img{
+    transform:scale(1.06);
+}
+
+.article-category{
+    position:absolute;
+    top:18px;
+    left:18px;
+    background:rgba(0,0,0,0.55);
+    backdrop-filter:blur(10px);
+    color:white;
+    padding:8px 15px;
+    border-radius:40px;
+    font-size:0.8rem;
+    font-weight:600;
+}
+
+.article-content{
+    padding:30px;
+}
+
+.article-content h2{
+    color:white;
+    font-size:1.45rem;
+    line-height:1.45;
+    margin-bottom:18px;
+}
+
+.article-content p{
+    color:#94a3b8;
+    line-height:1.9;
+    margin-bottom:28px;
+    font-size:0.97rem;
+}
+
+.article-btn{
+    color:#60a5fa;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.article-btn:hover{
+    opacity:0.7;
+}
+
+/* PDF MODAL */
+
+.pdf-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.86);
+    backdrop-filter:blur(8px);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999999;
+    padding:25px;
+}
+
+.pdf-modal.active{
+    display:flex;
+}
+
+.pdf-content{
+    width:95%;
+    max-width:1300px;
+    height:92vh;
+    background:white;
+    border-radius:24px;
+    overflow:hidden;
+    position:relative;
+}
+
+.pdf-content iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+.close-pdf{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:50%;
+    background:rgba(0,0,0,0.7);
+    color:white;
+    font-size:1.2rem;
+    cursor:pointer;
+    z-index:999;
+}
+
+@media(max-width:768px){
+
+.articles-header h1{
+    font-size:2.4rem;
+}
+
+}
+
+</style>
+
+<div class="articles-header">
+
+    <h1>Άρθρα & Παρεμβάσεις</h1>
+
+    <p>
+        Πολιτικές παρεμβάσεις, αναλύσεις και θέσεις για το Κυπριακό,
+        την κοινωνική δικαιοσύνη, τα ανθρώπινα δικαιώματα
+        και την Επαρχία Κερύνειας.
+    </p>
+
+</div>
+
+<div class="articles-grid">
+
+    <!-- ARTICLE 1 -->
+
+    <div class="article-card" onclick="openPDF('pdfs/1.pdf')">
+
+        <div class="article-image">
+            <img src="images/article1.jpg">
+            <div class="article-category">Κυπριακό</div>
         </div>
+
+        <div class="article-content">
+
+            <h2>Η Λύση πρέπει να περάσει από την Κερύνεια πρώτα</h2>
+
+            <p>
+                Προτάσεις και στρατηγικές για μια βιώσιμη και δίκαιη λύση
+                του Κυπριακού προβλήματος.
+            </p>
+
+            <a class="article-btn">Άνοιγμα PDF →</a>
+
+        </div>
+
     </div>
 
-    <!-- PDF Modal -->
-    <div id="pdfModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center; padding: 20px;">
-        <div style="background:white; width:95%; height:95vh; position:relative; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column;">
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #e0e0e0; background: #f5f5f5;">
-                <h3 style="margin: 0; font-size: 16px; color: #333;">Δελτίο Ειδήσεων 2026</h3>
-                <div style="display: flex; gap: 0.5rem;">
-                    <a href="2026_NEWSLETTERS_GN.pdf" download style="background: #4CAF50; color: white; border: none; padding: 0.5rem 1rem; cursor: pointer; font-size: 0.9rem; border-radius: 4px; font-weight: 600; text-decoration: none; display: inline-block;">
-                        ⬇ Λήψη
-                    </a>
-                    <button onclick="document.getElementById('pdfModal').style.display='none'" 
-                            style="background: #c74632; color: white; border: none; padding: 0.5rem 1rem; cursor: pointer; font-size: 1rem; border-radius: 4px; font-weight: 600;">
-                        ✕ Κλείσιμο
-                    </button>
-                </div>
-            </div>
-            <div style="flex: 1; overflow: auto; -webkit-overflow-scrolling: touch; background: #f9f9f9;">
-                <iframe src="2026_NEWSLETTERS_GN.pdf" width="100%" height="100%" style="border:none;" allowfullscreen></iframe>
-            </div>
+    <!-- ARTICLE 2 -->
+
+    <div class="article-card" onclick="openPDF('pdfs/2.pdf')">
+
+        <div class="article-image">
+            <img src="images/article2.jpg">
+            <div class="article-category">Κοινωνία</div>
         </div>
+
+        <div class="article-content">
+
+            <h2>Ο προσφυγικός κόσμος βιώνει κοινωνική ανισότητα</h2>
+
+            <p>
+                Μετά από δεκαετίες πολιτικής διαχείρισης,
+                οι εκτοπισμένοι συνεχίζουν να βιώνουν ανισότητες.
+            </p>
+
+            <a class="article-btn">Άνοιγμα PDF →</a>
+
+        </div>
+
     </div>
+
+    <!-- ARTICLE 3 -->
+
+    <div class="article-card" onclick="openPDF('pdfs/3.pdf')">
+
+        <div class="article-image">
+            <img src="images/article3.jpg">
+            <div class="article-category">Πολιτική</div>
+        </div>
+
+        <div class="article-content">
+
+            <h2>Θεσμική εκπροσώπηση των Κερυνειωτών</h2>
+
+            <p>
+                Μόνιμη συμμετοχή των Κερυνειωτών
+                στη διαπραγματευτική διαδικασία.
+            </p>
+
+            <a class="article-btn">Άνοιγμα PDF →</a>
+
+        </div>
+
+    </div>
+
+    <!-- ARTICLE 4 -->
+
+    <div class="article-card" onclick="openPDF('pdfs/4.pdf')">
+
+        <div class="article-image">
+            <img src="images/article4.jpg">
+            <div class="article-category">Οικονομία</div>
+        </div>
+
+        <div class="article-content">
+
+            <h2>Αποζημιώσεις για απώλεια χρήσης περιουσίας</h2>
+
+            <p>
+                Πρόταση οικονομικής στήριξης για ιδιοκτήτες
+                κατεχόμενων περιουσιών.
+            </p>
+
+            <a class="article-btn">Άνοιγμα PDF →</a>
+
+        </div>
+
+    </div>
+
+    <!-- ARTICLE 5 -->
+
+    <div class="article-card" onclick="openPDF('pdfs/5.pdf')">
+
+        <div class="article-image">
+            <img src="images/article5.jpg">
+            <div class="article-category">Βιογραφικό</div>
+        </div>
+
+        <div class="article-content">
+
+            <h2>Ο Γρηγόριος Νεοκλέους</h2>
+
+            <p>
+                Βιογραφικό, διεθνής πορεία,
+                επαγγελματική και πολιτική δράση.
+            </p>
+
+            <a class="article-btn">Άνοιγμα PDF →</a>
+
+        </div>
+
+    </div>
+
+    <!-- ARTICLE 6 -->
+
+    <div class="article-card" onclick="openPDF('pdfs/6.pdf')">
+
+        <div class="article-image">
+            <img src="images/article6.jpg">
+            <div class="article-category">Εδαφικό</div>
+        </div>
+
+        <div class="article-content">
+
+            <h2>Επιστροφή εδαφών της Κερύνειας</h2>
+
+            <p>
+                Ανάλυση στρατηγικών επιστροφής εδαφών
+                και γεωπολιτικής ισορροπίας.
+            </p>
+
+            <a class="article-btn">Άνοιγμα PDF →</a>
+
+        </div>
+
+    </div>
+
+    <!-- ARTICLE 7 -->
+
+    <div class="article-card" onclick="openPDF('pdfs/7.pdf')">
+
+        <div class="article-image">
+            <img src="images/article7.jpg">
+            <div class="article-category">Διαφάνεια</div>
+        </div>
+
+        <div class="article-content">
+
+            <h2>Ζούμε σε μια χώρα όπου η διαφθορά εκτέθηκε δημόσια</h2>
+
+            <p>
+                Παρέμβαση για διαφθορά, ανισότητες
+                και θεσμικές αλλαγές.
+            </p>
+
+            <a class="article-btn">Άνοιγμα PDF →</a>
+
+        </div>
+
+    </div>
+
+    <!-- ARTICLE 8 -->
+
+    <div class="article-card" onclick="openPDF('pdfs/8.pdf')">
+
+        <div class="article-image">
+            <img src="images/article8.jpg">
+            <div class="article-category">Δικαιώματα</div>
+        </div>
+
+        <div class="article-content">
+
+            <h2>Η Εκ Μητρογονίας αναγνώριση δικαιωμάτων</h2>
+
+            <p>
+                Παρέμβαση για τα δικαιώματα
+                της Κύπριας μητέρας.
+            </p>
+
+            <a class="article-btn">Άνοιγμα PDF →</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PDF POPUP -->
+
+<div class="pdf-modal" id="pdfModal">
+
+    <div class="pdf-content">
+
+        <button class="close-pdf" onclick="closePDF()">✕</button>
+
+        <iframe id="pdfViewer"></iframe>
+
+    </div>
+
+</div>
+
+<script>
+
+function openPDF(pdfFile){
+
+    document.getElementById("pdfViewer").src = pdfFile;
+    document.getElementById("pdfModal").classList.add("active");
+
+}
+
+function closePDF(){
+
+    document.getElementById("pdfModal").classList.remove("active");
+    document.getElementById("pdfViewer").src = "";
+
+}
+
+window.addEventListener("click", function(e){
+
+    const modal = document.getElementById("pdfModal");
+
+    if(e.target === modal){
+
+        closePDF();
+
+    }
+
+});
+
+</script>
+
 </section>
 
     <!-- Video Section -->
